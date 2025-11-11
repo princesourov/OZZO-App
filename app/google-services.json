@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "308953176679",
+    "project_id": "ozzo-25e3c",
+    "storage_bucket": "ozzo-25e3c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308953176679:android:dcbf7875f242c50cd312c2",
+        "android_client_info": {
+          "package_name": "com.epikason.ozzoapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKWIYfNY_Bz1i-GoO1oeGo9U7AR7NUjtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
