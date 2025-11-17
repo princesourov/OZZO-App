@@ -8,20 +8,21 @@
     android:orientation="vertical"
     tools:context=".views.starter.StartFragment">
 
-    <ImageView
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher_round" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/start_e_commerce_app" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_32sdp"
         android:fontFamily="@font/bebas_neue"
         android:gravity="center"
-        android:text="Welcome to OZZO App"
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:text="Welcome to OZZO"
+        android:textSize="@dimen/_32ssp"
         android:textColor="#12C86F" />
 
     <Button
@@ -30,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_32sdp"
-        android:layout_marginVertical="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_60sdp"
         android:backgroundTint="#12C86F"
         android:text="Login"
         android:textStyle="bold" />

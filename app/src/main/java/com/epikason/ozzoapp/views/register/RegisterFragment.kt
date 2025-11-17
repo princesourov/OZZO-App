@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.epikason.ozzoapp.R
+import com.epikason.ozzoapp.core.DataState
 import com.epikason.ozzoapp.data.models.UserRegistration
 import com.epikason.ozzoapp.databinding.FragmentRegisterBinding
 import com.epikason.ozzoapp.isEmpty
@@ -22,6 +23,7 @@ class RegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? { binding = FragmentRegisterBinding.inflate(inflater, container, false)
         setListener()
+        registrationResponse()
         return binding.root
     }
 
@@ -32,8 +34,6 @@ class RegisterFragment : Fragment() {
                 etEmail.isEmpty()
                 etPassword.isEmpty()
                 if (!etName.isEmpty() && !etEmail.isEmpty() && !etPassword.isEmpty()){
-                    Toast.makeText(context, "All input done...", Toast.LENGTH_SHORT).show()
-
                     val user = UserRegistration(
                         etName.text.toString(),
                         etEmail.text.toString(),
@@ -50,5 +50,22 @@ class RegisterFragment : Fragment() {
             }
         }
     }
+    private fun registrationResponse() {
 
+        viewModel.registrationResponse.observe(viewLifecycleOwner){
+
+            when(it) {
+                is DataState.Error -> {
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                }
+                is DataState.Loading -> {
+                    Toast.makeText(context, "Loading....", Toast.LENGTH_SHORT).show()
+                }
+                is DataState.Success -> {
+                    Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        }
+    }
 }
