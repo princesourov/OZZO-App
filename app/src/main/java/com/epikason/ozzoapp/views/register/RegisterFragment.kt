@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.epikason.ozzoapp.R
 import com.epikason.ozzoapp.core.DataState
@@ -44,9 +45,15 @@ class RegisterFragment : Fragment() {
 
                     viewModel.userRegistration(user)
                 }
-                btLogin.setOnClickListener {
-                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment2)
-                }
+            }
+            btLogin.setOnClickListener {
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment2,
+                    null,
+                    NavOptions
+                        .Builder()
+                        .setPopUpTo(R.id.registerFragment,true)
+                        .build()
+                )
             }
         }
     }
@@ -63,6 +70,13 @@ class RegisterFragment : Fragment() {
                 }
                 is DataState.Success -> {
                     Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment2,
+                        null,
+                        NavOptions
+                            .Builder()
+                            .setPopUpTo(R.id.registerFragment,true)
+                            .build()
+                    )
 
                 }
             }
