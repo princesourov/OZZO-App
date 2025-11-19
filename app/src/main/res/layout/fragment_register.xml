@@ -32,7 +32,7 @@
             android:gravity="center"
             android:text="Login to OZZO App"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-            android:textColor="#12C86F" />
+            android:textColor="@color/primary_color" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -118,7 +118,7 @@
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:text="User Registration"
             android:textStyle="bold"
-            android:backgroundTint="#12C86F" />
+            android:backgroundTint="@color/primary_color" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -129,9 +129,9 @@
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:text="Already have an account?"
-            android:textColor="#12C86F"
+            android:textColor="@color/primary_color"
             android:textStyle="bold"
-            app:strokeColor="#12C86F" />
+            app:strokeColor="@color/primary_color" />
 
     </LinearLayout>
 </ScrollView>

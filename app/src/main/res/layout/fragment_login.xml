@@ -30,9 +30,9 @@
             android:layout_margin="@dimen/_32sdp"
             android:fontFamily="@font/bebas_neue"
             android:gravity="center"
-            android:text="Login to OZZO App"
+            android:text="Login to MAIQ"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-            android:textColor="#12C86F" />
+            android:textColor="@color/primary_color" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_32sdp"
-            android:backgroundTint="#12C86F"
+            android:backgroundTint="@color/primary_color"
             android:text="Login"
             android:textStyle="bold" />
 
@@ -86,11 +86,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New User?"
-            android:textColor="#12C86F"
+            android:textColor="@color/primary_color"
             android:textStyle="bold"
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            app:strokeColor="#12C86F" />
+            app:strokeColor="@color/primary_color" />
 
     </LinearLayout>
 </ScrollView>

@@ -1,40 +1,29 @@
 package com.epikason.ozzoapp.views.register
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.epikason.ozzoapp.R
+import com.epikason.ozzoapp.base.BaseFragment
 import com.epikason.ozzoapp.core.DataState
 import com.epikason.ozzoapp.data.models.UserRegistration
 import com.epikason.ozzoapp.databinding.FragmentRegisterBinding
 import com.epikason.ozzoapp.isEmpty
+import dagger.hilt.android.AndroidEntryPoint
 
-class RegisterFragment : Fragment() {
-    lateinit var binding: FragmentRegisterBinding
-    private val viewModel : RegistrationViewModel by viewModels ()
+@AndroidEntryPoint
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? { binding = FragmentRegisterBinding.inflate(inflater, container, false)
-        setListener()
-        registrationResponse()
-        return binding.root
-    }
+    private val viewModel: RegistrationViewModel by viewModels()
 
-    private fun setListener() {
-        with(binding){
+    override fun setListener() {
+        with(binding) {
             btnRegister.setOnClickListener {
                 etName.isEmpty()
                 etEmail.isEmpty()
                 etPassword.isEmpty()
-                if (!etName.isEmpty() && !etEmail.isEmpty() && !etPassword.isEmpty()){
+                if (!etName.isEmpty() && !etEmail.isEmpty() && !etPassword.isEmpty()) {
                     val user = UserRegistration(
                         etName.text.toString(),
                         etEmail.text.toString(),
@@ -47,34 +36,47 @@ class RegisterFragment : Fragment() {
                 }
             }
             btLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment2,
+                findNavController().navigate(
+                    R.id.action_registerFragment_to_loginFragment2,
                     null,
                     NavOptions
                         .Builder()
-                        .setPopUpTo(R.id.registerFragment,true)
+                        .setPopUpTo(R.id.registerFragment, true)
                         .build()
                 )
             }
         }
     }
+
+    override fun allObserver() {
+        registrationResponse()
+    }
+
     private fun registrationResponse() {
 
-        viewModel.registrationResponse.observe(viewLifecycleOwner){
+        viewModel.registrationResponse.observe(viewLifecycleOwner) {
 
-            when(it) {
+            when (it) {
                 is DataState.Error -> {
+                    loadingDialog?.dismiss()
                     Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
                 }
+
                 is DataState.Loading -> {
-                    Toast.makeText(context, "Loading....", Toast.LENGTH_SHORT).show()
+                    loadingDialog?.show()
+
                 }
+
                 is DataState.Success -> {
+                    loadingDialog?.dismiss()
                     Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment2,
+
+                    findNavController().navigate(
+                        R.id.action_registerFragment_to_loginFragment2,
                         null,
                         NavOptions
                             .Builder()
-                            .setPopUpTo(R.id.registerFragment,true)
+                            .setPopUpTo(R.id.registerFragment, true)
                             .build()
                     )
 

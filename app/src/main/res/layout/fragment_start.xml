@@ -21,9 +21,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/bebas_neue"
         android:gravity="center"
-        android:text="Welcome to OZZO"
+        android:text="@string/tvWelcome"
         android:textSize="@dimen/_32ssp"
-        android:textColor="#12C86F" />
+        android:textColor="@color/primary_color" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_32sdp"
         android:layout_marginTop="@dimen/_60sdp"
-        android:backgroundTint="#12C86F"
+        android:backgroundTint="@color/primary_color"
         android:text="Login"
         android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_32sdp"
         android:text="Register"
-        android:textColor="#12C86F"
+        android:textColor="@color/primary_color"
         android:textStyle="bold"
-        app:strokeColor="#12C86F" />
+        app:strokeColor="@color/primary_color" />
 </LinearLayout>
