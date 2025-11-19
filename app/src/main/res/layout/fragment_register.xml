@@ -5,34 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".views.register.RegisterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:paddingVertical="@dimen/_16sdp">
 
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_200sdp"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_180sdp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/log_in" />
 
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_32sdp"
-            android:fontFamily="@font/bebas_neue"
             android:gravity="center"
-            android:text="Login to OZZO App"
+            android:text="Register an account"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-            android:textColor="@color/primary_color" />
+            android:textColor="@color/primary_color"
+            android:textStyle="bold" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -40,15 +40,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:hint="User Name"
+            android:hint="Full name"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -57,15 +57,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:hint="User Email"
+            android:hint="Email address"
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:hint="User Password"
+            android:hint="Password"
             app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -116,9 +116,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32sdp"
-            android:text="User Registration"
-            android:textStyle="bold"
-            android:backgroundTint="@color/primary_color" />
+            android:backgroundTint="@color/primary_color"
+            android:text="Registration"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -129,6 +130,7 @@
             android:layout_marginHorizontal="@dimen/_32sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:text="Already have an account?"
+            android:textAllCaps="false"
             android:textColor="@color/primary_color"
             android:textStyle="bold"
             app:strokeColor="@color/primary_color" />

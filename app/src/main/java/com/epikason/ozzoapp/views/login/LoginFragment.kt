@@ -25,6 +25,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     var user = UserLogIn(etEmail.text.toString(), etPassword.text.toString())
 
                     viewModel.userLogin(user)
+                    loadingDialog?.show()
                 }
             }
             btnRegister.setOnClickListener {
@@ -36,9 +37,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                         .build()
                 )
             }
-
         }
-
     }
 
     override fun allObserver() {
@@ -60,12 +59,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
                 is DataState.Success -> {
                     loadingDialog?.dismiss()
-
                     findNavController().navigate(
                         R.id.action_loginFragment_to_dashboardFragment,
                         null,
                         NavOptions.Builder()
-                            .setPopUpTo(R.id.loginFragment, true)
+                            .setPopUpTo(R.id.main_nav, true)
                             .build()
                     )
                 }

@@ -25,9 +25,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                 etPassword.isEmpty()
                 if (!etName.isEmpty() && !etEmail.isEmpty() && !etPassword.isEmpty()) {
                     val user = UserRegistration(
-                        etName.text.toString(),
-                        etEmail.text.toString(),
-                        etPassword.text.toString(),
+                        etName.text.toString().trim(),
+                        etEmail.text.toString().trim(),
+                        etPassword.text.toString().trim(),
                         "Seller",
                         ""
                     )
